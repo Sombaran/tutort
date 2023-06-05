@@ -24,10 +24,10 @@ void printOutput (std::vector <int> &);
 int  performOperation (std::vector<int> &, int&, int&);
 
 void printOutput (std::vector <int> &received) {
-    for (const auto& i: received) {
-        std::cout <<  i  << " ";
-    }
-    std::cout << std::endl;
+	for (const auto& i: received) {
+		std::cout <<  i  << " ";
+	}
+	std::cout << std::endl;
 }
 
 int performOperation (std::vector<int>& received, int& vectorSize, int& key) {
@@ -56,50 +56,48 @@ int performOperation (std::vector<int>& received, int& vectorSize, int& key) {
 
 
 int main() {
-	
 	std::vector <int> vec1{};
 	std::vector <int> vec2{10,20,30,40,50,60,70};
 
-    //pushIntoVector(n);
-    vec1.push_back(10);
-    vec1.push_back(20);
-    vec1.push_back(30);
-    vec1.push_back(40);
+    	//pushIntoVector(n);
+    	vec1.push_back(10);
+    	vec1.push_back(20);
+    	vec1.push_back(30);
+    	vec1.push_back(40);
 	vec1.push_back(50);
 
-    printOutput(vec1);
-    int sizeofVector1=vec1.size();
+    	printOutput(vec1);
+    	int sizeofVector1=vec1.size();
 	int key1{2};
-    std::cout << sizeofVector1 << std::endl;
+    	std::cout << sizeofVector1 << std::endl;
 	std::cout << "======================================================================\n";
-    std::cout << "output 1: " << performOperation (vec1,sizeofVector1, key1) << std::endl;
+    	std::cout << "output 1: " << performOperation (vec1,sizeofVector1, key1) << std::endl;
 
-    printOutput(vec2);
-    int sizeofVector2=vec2.size();
+    	printOutput(vec2);
+    	int sizeofVector2=vec2.size();
 	int key2 {4};
-    std::cout << sizeofVector2 << std::endl;
-    std::cout << "======================================================================\n";
-    std::cout << "output 2: " << performOperation (vec2,sizeofVector2,key2) << std::endl;
+    	std::cout << sizeofVector2 << std::endl;
+    	std::cout << "======================================================================\n";
+    	std::cout << "output 2: " << performOperation (vec2,sizeofVector2,key2) << std::endl;
 
 	//check key at 0
 	int key3{0};
-    std::cout << "======================================================================\n";
+    	std::cout << "======================================================================\n";
 	std::cout << "output 3: " << performOperation (vec2,sizeofVector2,key3) << std::endl;
 
-    //check key at -ve index
+    	//check key at -ve index
 	int key4{-1};
-    std::cout << "======================================================================\n";
+    	std::cout << "======================================================================\n";
 	std::cout << "output 4: " << performOperation (vec2,sizeofVector2,key4) << std::endl;
 
 	//check key out of bound
 	int key5{100};
-    std::cout << "======================================================================\n";
+    	std::cout << "======================================================================\n";
 	std::cout << "output 5: " << performOperation (vec2,sizeofVector2,key4) << std::endl;
 
 	//check key and vector size same
 	int key6{7};
-    std::cout << "======================================================================\n";
+    	std::cout << "======================================================================\n";
 	std::cout << "output 6: " << performOperation (vec2,sizeofVector2,key4) << std::endl;
-    return (0);
-
+    	return (0);
 }
