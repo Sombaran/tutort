@@ -25,53 +25,53 @@ void printOutput (std::vector <int> &);
 int  performOperation (std::vector<int> &, int&, int&);
 
 void printOutput (std::vector <int> &received) {
-    for (const auto& i: received) {
-        std::cout <<  i  << " ";
-    }
-    std::cout << std::endl;
+	for (const auto& i: received) {
+		std::cout <<  i  << " ";
+	}
+	std::cout << std::endl;
 }
 
 int performOperation (std::vector<int> &received, int& vectorSize, int& key) {
-    int i {0},count{-1}, result {-1};
-    std::cout << "Size vector " << vectorSize << std::endl;
+	int i {0},count{0}, result {0};
+    	std::cout << "Size vector " << vectorSize << std::endl;
 	std::cout << "Key " << key << std::endl;
-    while(i<vectorSize) {
-        if(received[i] <= key) {
-            result = ++count;
-        }
-        ++i;
-    }
-    return result;
+    	while(i<vectorSize) {   
+        	if(received[i] <= key) {
+            	result = ++count;
+		}
+		if (received[i] == received[i+1] << key) {
+            	result = ++count;
+        	}
+		++i;
+	}
+	return result;
 }
 
 int main() {
-	
 	std::vector <int> vec1{};
 	std::vector <int> vec2{1,2,2,2,5,7,9};
 
-    //pushIntoVector(n);
-    vec1.push_back(1);
-    vec1.push_back(2);
-    vec1.push_back(4);
-    vec1.push_back(5);
+    	//pushIntoVector(n);
+    	vec1.push_back(1);
+    	vec1.push_back(2);
+    	vec1.push_back(4);
+    	vec1.push_back(5);
 	vec1.push_back(8);
-    vec1.push_back(10);
+    	vec1.push_back(10);
 
 
-    printOutput(vec1);
-    int sizeofVector1=vec1.size();
+    	printOutput(vec1);
+    	int sizeofVector1=vec1.size();
 	int key1{9};
-    std::cout << sizeofVector1 << std::endl;
-    std::cout << "======================================================================\n";
-    std::cout << "output 1: " << performOperation (vec1,sizeofVector1, key1) << std::endl;
+    	std::cout << sizeofVector1 << std::endl;
+    	std::cout << "======================================================================\n";
+    	std::cout << "output 1: " << performOperation (vec1,sizeofVector1, key1) << std::endl;
 
-    printOutput(vec2);
-    int sizeofVector2=vec2.size();
+    	printOutput(vec2);
+    	int sizeofVector2=vec2.size();
 	int key2{2};
-    std::cout << sizeofVector2 << std::endl;
-    std::cout << "======================================================================\n";
-    std::cout << "output 1: " << performOperation (vec1,sizeofVector2, key2) << std::endl;
-
-
-    return (0);
+    	std::cout << sizeofVector2 << std::endl;
+    	std::cout << "======================================================================\n";
+    	std::cout << "output 1: " << performOperation (vec1,sizeofVector2, key2) << std::endl;
+    	return (0);
 }
