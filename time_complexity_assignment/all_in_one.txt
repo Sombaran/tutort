@@ -1,0 +1,63 @@
+1.
+int a = 0, b = 0;
+for (i = 0; i < N; i++) {
+a = a + rand();
+}
+for (j = 0; j < M; j++) {
+b = b + rand();
+}
+TC=O(N) as both input varibles a and b as no relation within for loop condition.
+SC=O(N)
+
+2.
+int a = 0;
+for (i = 0; i < N; i++) {
+for (j = N; j > i; j--) {
+a = a + i + j;
+}
+}
+TC=O(N*N) as both input varibles a and b as no relation within for loop condition but inner loop runs
+for N times and similarly outer loop also runs for N times.
+SC=O(N)
+
+3.
+int i, j, k = 0;
+for (i = n / 2; i <= n; i++) {
+for (j = 2; j <= n; j = j * 2) {
+k = k + n / 2;
+}
+}
+TC=outer loop + inner loop O(N log N)
+Outer loop stops when i=n or i>=N so O(N) ---1
+Inner loop stops when j >= n  so O(log N) ---2
+        iteration              j  j*2
+         1                     1   2
+         2                     2   2*4(8)
+         3                 2*4(8)  2*4*2(16)
+         4              2*2*4(16)  2*2*4*2(32)
+              |
+              |
+              k         k*2
+
+
+SC=O(N)
+
+4.
+int a = 0, i = N;
+while (i > 0) {
+a += i;
+i /= 2;
+}
+TC
+SC
+
+5.
+for(var i=0;i<n;i++)
+i*=k
+TC 
+
+6.
+var value = 0;
+for(var i=0;i<n;i++)
+for(var j=0;j<i;j++)
+value += 1;
