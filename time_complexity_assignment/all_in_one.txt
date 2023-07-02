@@ -7,7 +7,7 @@ for (j = 0; j < M; j++) {
 b = b + rand();
 }
 TC=O(N) as both input varibles a and b as no relation within for loop condition.
-SC=O(N)
+SC=O(1)
 
 2.
 int a = 0;
@@ -18,7 +18,7 @@ a = a + i + j;
 }
 TC=O(N*N) as both input varibles a and b as no relation within for loop condition but inner loop runs
 for N times and similarly outer loop also runs for N times.
-SC=O(N)
+SC=O(1)
 
 3.
 int i, j, k = 0;
@@ -40,7 +40,7 @@ Inner loop stops when j >= n  so O(log N) ---2
               k         k*2
 
 
-SC=O(N)
+SC=O(1)
 
 4.
 int a = 0, i = N;
@@ -48,16 +48,46 @@ while (i > 0) {
 a += i;
 i /= 2;
 }
-TC
-SC
+TC=O(log N)
+The condition inside while loop stops when i =0 || i<0
+itertion        i       i/2
+1               1       0.5
+2               0.5       1
+3               1       1.5
+after k iteration
+k               k       k/2
+
+SC=O(1)
 
 5.
 for(var i=0;i<n;i++)
 i*=k
-TC 
+TC=O(log l)
+This for loop exits when i=n || i>n
+iteration       i       i*k
+1               1       k
+2               k       k*2k
+3               2k      2k*3k
+
+after l itertion
+
+l           (l-1)k      lk*(l-1)k
+
+Taking higher value
+
+l = lk^2
+solve of k we get (log l)
+
+SC=O(1)
 
 6.
 var value = 0;
 for(var i=0;i<n;i++)
 for(var j=0;j<i;j++)
 value += 1;
+
+TC=O(k^2)
+Outer for loop runs for n times
+Inner for loop runs for i times and should stop when j>i || j=i
+lets say after k iteration outer loop is O(k), then inner for loop should run for k times 
+SC=O(1)
