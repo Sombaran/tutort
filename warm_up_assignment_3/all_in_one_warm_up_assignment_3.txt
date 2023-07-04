@@ -184,23 +184,51 @@ public:
 /*
 https://leetcode.com/problems/third-maximum-number/
 */
-
 class Solution {
 public:
     int thirdMax(vector<int>& nums) {
-        std::priority_queue<int> pq{};
-        for (int i=0;i<nums.size();++i) {
-            pq.push(nums[i]);
+
+        sort(nums.begin(), nums.end());
+        nums.erase(unique(nums.begin(), nums.end()), nums.end());
+        reverse(nums.begin(), nums.end());
+        if(nums.size()<3) 
+            return nums[0];
+        return nums[2];
+    }
+};
+
+/*
+https://leetcode.com/problems/reverse-vowels-of-a-string/solutions/
+*/
+
+class Solution {
+public:
+    string reverseVowels(string s) {
+        if(s.size() == 1)
+            return s;
+        int i = 0;
+        int j = s.size()-1;
+        while(i < j) {
+            if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || 
+               s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || 
+               s[i] == 'O' || s[i] == 'U') {
+
+                if(s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' || s[j] == 'u' || s[j] == 'A' || s[j] == 'E' || s[j] == 'I' || s[j] == 'O' || s[j] == 'U') 
+                {
+                       swap(s[i],s[j]);
+                       j--;
+                       i++;
+                } 
+                else 
+                {
+                    j--;
+                }
+            } 
+            else 
+            {
+                i++;
+            }
         }
-        int controller{}, output{};
-        if (nums.size() == 2)
-            output = std::max(nums[0],nums[1]);
-        while (!pq.empty() && controller <=3 && nums.size()>2) {
-            cout << pq.top() << ' ';
-            output =pq.top();
-            pq.pop();
-            controller++;
-        }
-        return (output);
+        return s;
     }
 };
