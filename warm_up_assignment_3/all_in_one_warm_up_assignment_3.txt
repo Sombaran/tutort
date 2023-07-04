@@ -83,5 +83,124 @@ public:
 };
 
 /*
-
+https://leetcode.com/problems/ugly-number/
 */
+
+class Solution {
+public:
+    bool isUgly(int n) {
+        bool flag{false};
+        if (n<=0)
+            return (flag);
+        while (n>1) 
+        {
+            if (n%2 ==0) {
+                n/=2;
+            }
+            else if (n%3 ==0) {
+                n/=3;
+            }
+            else if (n%5 ==0) {
+                n/=5;
+            }
+            else
+                return (flag);
+        } 
+
+        return (not(flag));
+    }
+};
+
+/*
+https://leetcode.com/problems/third-maximum-number/
+*/
+
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        char c = 0;
+        for(char cs : s) 
+            c ^= cs;
+        for(char ct : t) 
+            c ^= ct;
+        std::cout << c << std::endl;
+        return c;
+    }
+};
+
+/*
+https://leetcode.com/problems/add-digits/
+*/
+
+class Solution {
+public:
+    int addDigits(int num) {
+        if (num == 0)
+            return 0;
+        else if (num ==1)
+            return 1;
+        else 
+            return 1+(num-1) % 9;        
+    }
+};
+
+/*
+https://leetcode.com/problems/sum-of-digits-of-string-after-convert/
+*/
+
+class Solution {
+public:
+    int getLucky(string s, int k) {
+       int c=0;
+       for(const auto& i:s){
+           int x=i-96;
+            if(x<10){
+                c=c+x;
+            }else{
+                c=c+(x%10);
+                x/=10;
+                c=c+x;
+            }
+        }
+
+        if(k==1){
+            return c;
+        }else{
+            for(int j=0;j<k-1;j++){
+                int y=0;
+                while(c){
+                    y=y+(c%10);
+                    c/=10;
+                }
+                c=y;
+            }
+            return c;
+        }
+        return -1;
+        
+    }
+};
+
+/*
+https://leetcode.com/problems/third-maximum-number/
+*/
+
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        std::priority_queue<int> pq{};
+        for (int i=0;i<nums.size();++i) {
+            pq.push(nums[i]);
+        }
+        int controller{}, output{};
+        if (nums.size() == 2)
+            output = std::max(nums[0],nums[1]);
+        while (!pq.empty() && controller <=3 && nums.size()>2) {
+            cout << pq.top() << ' ';
+            output =pq.top();
+            pq.pop();
+            controller++;
+        }
+        return (output);
+    }
+};
