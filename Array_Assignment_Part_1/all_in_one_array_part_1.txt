@@ -93,6 +93,21 @@ public:
 https://leetcode.com/problems/pascals-triangle-ii/description/
 */
 
+class Solution {
+public:
+    vector<int> getRow(int row) {
+        //row starts from 0, means 3rd row will have 4 elements
+        vector<int> ans(row+1,1);
+
+        long prev=1;
+        for(int j=1;j<=row-1;j++){
+            prev = prev * (row-j+1) / j;  
+            ans[j] = prev; 
+        } 
+        return ans;   
+    }
+};
+
 /*
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 */
