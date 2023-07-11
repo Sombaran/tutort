@@ -120,10 +120,53 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
 https://leetcode.com/problems/majority-element/
 */
 
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int returnValue{};
+        int majorityElement = nums.size()/2;
+        std::unordered_map<int, int> uMp{};
+
+        for (int i=0;i<nums.size();++i){
+            uMp[nums[i]]++;
+        }
+
+        for (const auto& i : uMp){
+            if (i.second > majorityElement) {
+                returnValue = i.first;
+            }
+        }
+        return (returnValue);
+    }
+};
 
 /*
 https://leetcode.com/problems/majority-element-ii/
 */
+
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        std::vector<int> returnValue{};
+        int majorityElement = nums.size()/3;
+
+        std::unordered_map<int, int> uMp{};
+
+        for (int i=0;i<nums.size();++i){
+            uMp[nums[i]]++;
+        }
+
+        for (const auto& i : uMp){
+            if (i.second > majorityElement) {
+                //returnValue = i.first;
+                returnValue.push_back(i.first);
+            }
+        }
+        return (returnValue);
+        
+    }
+};
+
 
 /*
 https://leetcode.com/problems/missing-ranges/ 
